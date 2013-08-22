@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+//= require twitter/bootstrap
+//= require bootstrap-scrollspy
+//= require bootstrap-modal
+//= require bootstrap-dropdown
 //= require_tree .
 
-$(function(){ $(document).foundation(); });

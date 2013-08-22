@@ -1,11 +1,14 @@
 Sailmaui::Application.routes.draw do
-  match '/', :controller => 'pages', :action => 'options', :constraints => {:method => 'OPTIONS'}
+  #match "pages/home" => redirect("/")
+
   devise_for :users
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
+  match "pages/:id" => redirect("/%{id}")
   resources :pages, :only => :show
-
+  match "/home" => redirect("/")
+  match ":id" => 'pages#show'
+  root :to => "pages#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -8,7 +8,17 @@ class PagesController < ApplicationController
       format.json { render json: @page }
     end
   end
+
   def options
     render :nothing => true, :status => 200
   end
+
+  def home
+    @page = Page.find 'home'
+
+    render :template => 'pages/show', :layout => 'landing'
+  end
+
+  private
 end
+

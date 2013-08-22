@@ -17,6 +17,16 @@
     = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
   %body
-    = yield
+    .container#main-wrapper
+      = render 'partials/header'
+      .row
+        .span12
+          %section#main-content.borders-container
+            = render 'partials/borders'
+            = render 'partials/main_nav'
+            .inner-pad
+              = yield
+      .row
+        .span12
+          = render 'partials/footer'
     = javascript_include_tag "application"
-    %p test

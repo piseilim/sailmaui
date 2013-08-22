@@ -1,0 +1,6 @@
+%nav.navbar#top-navbar.show-grid
+  %section.navbar-inner
+    %ul.nav
+      - Page.all.each do |page|
+        %li
+          = link_to "#{page.title}", "/#{page.slug}"

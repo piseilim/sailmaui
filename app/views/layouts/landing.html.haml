@@ -1,0 +1,78 @@
+!!!
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/[if lt IE 9]
+  %script{:type => "text/javascript", :src  => "https://html5shim.googlecode.com/svn/trunk/html5.js"}
+/ [if (gte IE 9)|!(IE)]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}/
+    / Uncomment to make IE8 render like IE7
+    / <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    / Set the viewport width to device width for mobile
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tags
+  %body
+    .container#main-wrapper
+      = render 'partials/header'
+      .borders-container
+        = render 'partials/borders'
+        = render 'partials/main_nav'
+        #my-carousel.carousel.slide
+          %ol.carousel-indicators
+            %li.active{:data => {:target => '#my-carousel', :slide => {:to => '0'} } }
+          .carousel-inner
+            .active.item
+              = image_tag('slides/slide-1.jpg')
+            .item
+            .item
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      .row-fluid.show-grid
+        .pa20
+          .span4
+            .well
+              .title
+                %i.icon-cogs.icon-white
+                Box 1
+              .content
+                lorem ipsum
+              .cta.clearfix
+                = link_to "button", "#", :class => "radius button right"
+          .span4
+            .well
+              .title
+                %i.icon-cogs.icon-white
+                Box 1
+              .content
+                lorem ipsum
+              .cta.element
+                = link_to "button", "#", :class => "radius button right"
+
+          .span4
+            .well
+              .title
+                %i.icon-cogs.icon-white
+                Box 1
+              .content
+                lorem ipsum
+              .cta
+                = link_to "button", "#", :class => "radius button right"
+      .row
+        .span12
+          %section#main-content.borders-container
+            = render 'partials/borders'
+            .inner-pad
+              = yield
+      .row
+        .span12
+          .pa15
+            = render 'partials/footer'
+
+    = javascript_include_tag "application"
