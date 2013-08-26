@@ -34,36 +34,45 @@
             .item
           <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
           <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-      .row-fluid.show-grid
+      .row-fluid.show-grid.action-boxes
         .pa20
           .span4
-            .well
+            .well.clearfix
               .title
-                %i.icon-cogs.icon-white
-                Box 1
+                %span.circle-border
+                  %i.icon-calendar.icon-white.img-circle
+                Make a Reservation
               .content
-                lorem ipsum
+                %p Reserve Your Trip Online & Save!
+                %p Internet rate of 15% off!
+                %p **Internet rates are available by booking online only.
               .cta.clearfix
-                = link_to "button", "#", :class => "radius button right"
+                = link_to "Reserve Now", "#", :class => "btn pull-right"
           .span4
-            .well
+            .well.clearfix
               .title
-                %i.icon-cogs.icon-white
-                Box 1
+                %span.circle-border
+                  %i.icon-anchor.icon-white
+                Paragon Vessels
               .content
-                lorem ipsum
-              .cta.element
-                = link_to "button", "#", :class => "radius button right"
+                High performance sailing catamarans US Coast Guard certified for 49 passengers.
+              .cta
+                = link_to "#", :class => "pull-right link-more" do
+                  Learn More
+                  %i.icon-long-arrow-right
 
           .span4
-            .well
+            .well.clearfix
               .title
-                %i.icon-cogs.icon-white
-                Box 1
+                %span.circle-border
+                  %i.icon-refresh.icon-white
+                Eco-Friendly Charter
               .content
-                lorem ipsum
+                Paragon Sailing Charters: Maui's most eco-friendly green "earth first" charter boats!
               .cta
-                = link_to "button", "#", :class => "radius button right"
+                = link_to "#", :class => "pull-right link-more" do
+                  Learn More
+                  %i.icon-long-arrow-right
       .row
         .span12
           %section#main-content.borders-container

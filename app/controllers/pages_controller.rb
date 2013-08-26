@@ -19,6 +19,7 @@ class PagesController < ApplicationController
     render :template => 'pages/show', :layout => 'landing'
   end
 
+
   private
 end
 

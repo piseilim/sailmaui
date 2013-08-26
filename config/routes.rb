@@ -7,7 +7,8 @@ Sailmaui::Application.routes.draw do
   match "pages/:id" => redirect("/%{id}")
   resources :pages, :only => :show
   match "/home" => redirect("/")
-  match ":id" => 'pages#show'
+  get 'contact-us' => 'contact_us/contacts#new', :as => :contact_us
+  match ":id" => "pages#show"
   root :to => "pages#home"
 
   # The priority is based upon order of creation:

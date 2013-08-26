@@ -18,6 +18,7 @@ gem 'haml', '~> 4.0.3'
 gem 'html2haml', '~> 1.0.1'
 gem "font-awesome-rails"
 gem "twitter-bootstrap-rails"
+gem 'contact_us', '~> 0.4.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
