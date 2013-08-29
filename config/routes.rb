@@ -1,12 +1,14 @@
 Sailmaui::Application.routes.draw do
-  #match "pages/home" => redirect("/")
-
   devise_for :users
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   match "pages/:id" => redirect("/%{id}")
   resources :pages, :only => :show
   match "/home" => redirect("/")
+
+  resources :contacts,
+    :controller => 'contact_us/contacts',
+    :only       => [:new, :create]
   get 'contact-us' => 'contact_us/contacts#new', :as => :contact_us
   match ":id" => "pages#show"
   root :to => "pages#home"
